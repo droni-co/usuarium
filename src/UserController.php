@@ -17,4 +17,8 @@ class UserController extends BaseController {
       'data' => $users
     ]);
   }
+  public function show($id) {
+    $user = User::find($id);
+    echo json_encode($user);
+  }
 }

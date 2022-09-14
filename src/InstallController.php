@@ -30,12 +30,20 @@ class InstallController extends BaseController
   public function migrate()
   {
     try {
+      // create table for users
       DB::schema()->create('users', function ($table) {
         $table->increments('id');
         $table->string('email')->unique();
         $table->string('first_name');
         $table->string('last_name')->nullable();
         $table->string('avatar')->nullable();
+        $table->timestamps();
+      });
+      // create table for api clients
+      DB::schema()->create('api_clients', function ($table) {
+        $table->increments('id');
+        $table->string('name');
+        $table->string('secret');
         $table->timestamps();
       });
       echo json_encode([

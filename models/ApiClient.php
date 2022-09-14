@@ -2,9 +2,9 @@
 namespace Models;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model {
+class ApiClient extends Model {
 
-  protected $table = 'users';
+  protected $table = 'api_clients';
   protected $fillable = ['email', 'first_name', 'last_name', 'avatar'];
 
 }
