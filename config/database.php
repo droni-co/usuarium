@@ -5,7 +5,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 $db = new Capsule;
 
 $db->addConnection([
-  "driver" => "sqlsrv",
+  "driver" => "mysql",
   "host" => $_ENV['DB_HOST'],
   "database" => $_ENV['DB_NAME'],
   "username" => $_ENV['DB_USER'],

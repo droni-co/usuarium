@@ -13,11 +13,13 @@
     "vlucas/phpdotenv": "^5.4",
     "illuminate/events": "^9.25",
     "bramus/router": "^1.6",
-    "illuminate/http": "^9.26"
+    "illuminate/http": "^9.26",
+    "guzzlehttp/guzzle": "^7.0"
   },
   "autoload": {
     "psr-4": {
-      "Usuarium\\": "src/"
+      "Usuarium\\": "src/",
+      "Models\\": "models/"
     }
   },
   "require-dev": {

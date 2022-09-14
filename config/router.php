@@ -6,6 +6,7 @@ $router->get('/', function() {
   header('Location: /front_app/dist/');
   exit;
 });
+$router->get('/api/install/check', '\Usuarium\InstallController@check');
 $router->get('/api/install/migrate', '\Usuarium\InstallController@migrate');
 $router->get('/api/install/fetcher', '\Usuarium\InstallController@fetcher');
 $router->get('/api/users', '\Usuarium\UserController@index');
