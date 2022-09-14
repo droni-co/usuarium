@@ -5,7 +5,7 @@ $router = new \Bramus\Router\Router();
 function sendCorsHeaders()
 {
     header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Headers: Authorization");
+    header("Access-Control-Allow-Headers: *");
     header("Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE");
 }
 $router->options('/.*', function () {
@@ -14,7 +14,7 @@ $router->options('/.*', function () {
 sendCorsHeaders();
 
 // define middleware
-$router->before('GET', '/api/users/{id}', '\Usuarium\BaseController@validateClient');
+$router->before('GET', '/api/users/{id}', '\Usuarium\ApiClientController@middleware');
 
 // Define routes
 $router->get('/', function() {

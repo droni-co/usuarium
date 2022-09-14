@@ -21,4 +21,22 @@ class UserController extends BaseController {
     $user = User::find($id);
     echo json_encode($user);
   }
+  public function store() {
+    $user = new User();
+    $user->first_name = $this->request->first_name;
+    $user->last_name = $this->request->last_name;
+    $user->email = $this->request->email;
+    $user->avatar = $this->request->avatar;
+    $user->save();
+    echo json_encode($user);
+  }
+  public function update() {
+    $user = User::find($this->request->id);
+    $user->first_name = $this->request->first_name;
+    $user->last_name = $this->request->last_name;
+    $user->email = $this->request->email;
+    $user->avatar = $this->request->avatar;
+    $user->save();
+    echo json_encode($user);
+  }
 }

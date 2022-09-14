@@ -7,7 +7,7 @@
         Run migrations
       </b-button>
       <b-button v-if="checkDatabase?.status == 'ok'" variant="outline-primary" @click="fetcher()">
-        Fecha data from Api
+        Fetch data from Api
       </b-button>
     </b-alert>
   

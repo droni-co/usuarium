@@ -9,7 +9,4 @@ class BaseController {
   public function __construct() {
     $this->request = Request::capture();
   }
-  public function validateClient() {
-    dd('valid');
-  }
 }
