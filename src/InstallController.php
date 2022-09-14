@@ -52,12 +52,28 @@ class InstallController extends BaseController
 
   public function fetcher()
   {
-    $this->getRecords();
-  }
-  private function getRecords($page=1) {
+    $users = User::count();
+    $per_page = 6;
+    $page = ceil($users / $per_page) + 1;
+
     $client = new Client();
     $response = $client->get('https://reqres.in/api/users?page='.$page);
-    $json = json_decode($response->getBody());
-    dd($json);
+    // if response is ok
+    if($response->getStatusCode() == 200) {
+      $data = json_decode($response->getBody());
+      // insert records
+      foreach($data->data as $user) {
+        $user = User::create([
+          'email' => $user->email,
+          'first_name' => $user->first_name,
+          'last_name' => $user->last_name,
+          'avatar' => $user->avatar
+        ]);
+      }
+      echo json_encode([
+        "status" => "ok",
+        "message" => "Records inserted from page ".$page
+      ]);
+    }
   }
 }
